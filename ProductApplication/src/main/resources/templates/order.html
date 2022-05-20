@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<style>
+	.container {
+		text-align: center;
+		width: 400px;
+		height: 100px;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		font-size: medium;
+		margin: auto;
+	}
+
+	p {
+		font-size: 25px;
+	}
+</style>
+
+<head>
+	<title>Order Sucess</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<div class="container">
+		<h1>Thank you for your Order, Keep Shopping</h1>
+		<p> Your order id is </p>
+		<p id="demo"></p>
+
+		<script>
+			document.getElementById("demo").innerHTML = Math.random().toString(16).slice(2);
+		</script>
+	</div>
+</body>
+
+</html>
