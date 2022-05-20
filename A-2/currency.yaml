@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: currency
+spec:
+  selector:
+    matchLabels:
+      app: currency
+  template:
+    metadata:
+      labels:
+        app: currency
+    spec:
+      containers:
+      - name: currency
+        image: margiibm/currency
+        ports:
+        - containerPort: 80
+        env:
+        - name: CONVERSIONURL
+          valueFrom:
+            configMapKeyRef:
+              name: currency-config
+              key: CONVERSIONURL
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: currency
+spec:
+  selector:
+    app: currency
+  ports:
+  - port: 80
+    targetPort: 8081
